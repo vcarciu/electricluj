@@ -24,7 +24,6 @@
       overflow: hidden;
     }
 
-    /* overlay */
     header::after {
       content: "";
       position: absolute;
@@ -54,15 +53,16 @@
       line-height: 1.4;
     }
 
+    /* CONTAINER CTA – centrare sigură */
     .cta-wrap {
-      position: relative;
+      display: flex;
+      justify-content: center;
+      width: 100%;
       z-index: 9999;
-      display: inline-block;
-      pointer-events: auto;
     }
 
     .whatsapp-btn {
-      display: inline-flex;
+      display: flex;
       align-items: center;
       justify-content: center;
       padding: 16px 30px;
@@ -74,9 +74,9 @@
       border-radius: 10px;
       border: 0;
       cursor: pointer;
-      pointer-events: auto !important;
       -webkit-tap-highlight-color: transparent;
       user-select: none;
+      text-align: center;
     }
 
     .whatsapp-btn:active {
@@ -134,10 +134,16 @@
       font-weight: bold;
     }
 
+    /* MOBILE FIX – centrare PERFECTĂ */
     @media (max-width: 600px) {
       .hero h1 { font-size: 1.8rem; }
       .hero p { font-size: 1.05rem; }
-      .whatsapp-btn { width: 100%; max-width: 320px; }
+
+      .whatsapp-btn {
+        width: 100%;
+        max-width: 320px;
+        margin: 0 auto;
+      }
     }
   </style>
 </head>
@@ -182,35 +188,10 @@
 </section>
 
 <footer>
-  <p>📞 WhatsApp: <a id="waBottom" href="https://wa.me/40744925314" target="_blank" rel="noopener">+40 744 925 314</a></p>
+  <p>📞 WhatsApp: <a href="https://wa.me/40744925314" target="_blank" rel="noopener">+40 744 925 314</a></p>
   <p>📧 Email: <a href="mailto:stropu1@yahoo.com">stropu1@yahoo.com</a></p>
   <p>© 2026 ElectriCluj – Cluj-Napoca</p>
 </footer>
-
-<script>
-  (function () {
-    var url = "https://wa.me/40744925314?text=Salut!%20Am%20nevoie%20de%20un%20electrician%20%C3%AEn%20Cluj.";
-    function hardOpen(e) {
-      e.preventDefault();
-      window.open(url, "_blank", "noopener");
-      setTimeout(function () {
-        window.location.href = url;
-      }, 150);
-    }
-
-    var topBtn = document.getElementById("waTop");
-    if (topBtn) {
-      topBtn.addEventListener("click", hardOpen, { passive: false });
-      topBtn.addEventListener("touchend", hardOpen, { passive: false });
-    }
-
-    var bottomBtn = document.getElementById("waBottom");
-    if (bottomBtn) {
-      bottomBtn.addEventListener("click", hardOpen, { passive: false });
-      bottomBtn.addEventListener("touchend", hardOpen, { passive: false });
-    }
-  })();
-</script>
 
 </body>
 </html>
