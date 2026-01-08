@@ -1,71 +1,72 @@
 <!DOCTYPE html>
 <html lang="ro">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ElectricLuj – Servicii electrice Cluj-Napoca</title>
-  <meta name="description" content="Servicii electrice profesionale în Cluj-Napoca. Intervenții rapide, instalații, reparații. Sună sau scrie pe WhatsApp." />
+  <meta charset="UTF-8">
+  <title>ElectricLuj – Electrician Cluj-Napoca</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Electrician Cluj-Napoca. Instalații electrice, reparații, intervenții rapide. Contact pe WhatsApp.">
 
   <style>
     body {
       margin: 0;
       font-family: Arial, Helvetica, sans-serif;
+      background: #f4f4f4;
       color: #222;
-      background: #f5f5f5;
     }
 
     header {
       background: url("assets/hero.png") center / cover no-repeat;
-      height: 80vh;
+      height: 85vh;
+      position: relative;
       display: flex;
       align-items: center;
       justify-content: center;
-      position: relative;
     }
 
     header::after {
       content: "";
       position: absolute;
       inset: 0;
-      background: rgba(0, 0, 0, 0.55);
+      background: rgba(0, 0, 0, 0.6);
     }
 
-    .hero-content {
+    .hero {
       position: relative;
-      color: #fff;
       text-align: center;
-      padding: 20px;
+      color: #fff;
       max-width: 800px;
+      padding: 20px;
     }
 
-    .hero-content h1 {
-      font-size: 2.5rem;
+    .hero h1 {
+      font-size: 2.6rem;
       margin-bottom: 10px;
     }
 
-    .hero-content p {
+    .hero p {
       font-size: 1.2rem;
-      margin-bottom: 20px;
+      margin-bottom: 25px;
     }
 
-    .cta {
+    .whatsapp-btn {
       display: inline-block;
-      padding: 14px 26px;
+      padding: 16px 30px;
       background: #25d366;
       color: #fff;
-      text-decoration: none;
+      font-size: 1.1rem;
       font-weight: bold;
-      border-radius: 6px;
+      text-decoration: none;
+      border-radius: 8px;
     }
 
     section {
-      padding: 50px 20px;
       max-width: 1100px;
       margin: auto;
+      padding: 50px 20px;
       background: #fff;
     }
 
-    section h2 {
+    h2 {
       text-align: center;
       margin-bottom: 30px;
       font-size: 2rem;
@@ -81,7 +82,7 @@
       background: #fafafa;
       padding: 20px;
       border-radius: 8px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
     }
 
     .gallery {
@@ -110,7 +111,7 @@
     }
 
     @media (max-width: 600px) {
-      .hero-content h1 {
+      .hero h1 {
         font-size: 1.8rem;
       }
     }
@@ -119,39 +120,46 @@
 
 <body>
 
-  <header>
-    <div class="hero-content">
-      <h1>ElectricLuj</h1>
-      <p>Servicii electrice profesionale în Cluj-Napoca</p>
-      <a class="cta" href="https://wa.me/40744925314" target="_blank">
-        Contact WhatsApp
-      </a>
-    </div>
-  </header>
+<header>
+  <div class="hero">
+    <h1>ElectricLuj</h1>
+    <p>Electrician autorizat în Cluj-Napoca<br>Intervenții rapide & instalații electrice</p>
 
-  <section>
-    <h2>Servicii</h2>
-    <div class="services">
-      <div class="service">Instalații electrice rezidențiale</div>
-      <div class="service">Reparații și intervenții rapide</div>
-      <div class="service">Prize, întrerupătoare, tablouri electrice</div>
-      <div class="service">Verificări și mentenanță</div>
-    </div>
-  </section>
+    <!-- BUTON WHATSAPP – FUNCȚIONEAZĂ GARANTAT -->
+    <a
+      class="whatsapp-btn"
+      href="https://wa.me/40744925314?text=Salut!%20Am%20nevoie%20de%20un%20electrician%20%C3%AEn%20Cluj."
+      target="_blank"
+      rel="noopener"
+    >
+      Contact pe WhatsApp
+    </a>
+  </div>
+</header>
 
-  <section>
-    <h2>Lucrări realizate</h2>
-    <div class="gallery">
-      <img src="assets/work1.jpg" alt="Lucrare electrică 1">
-      <img src="assets/work2.jpg" alt="Lucrare electrică 2">
-    </div>
-  </section>
+<section>
+  <h2>Servicii</h2>
+  <div class="services">
+    <div class="service">Instalații electrice apartamente și case</div>
+    <div class="service">Reparații și intervenții rapide</div>
+    <div class="service">Prize, întrerupătoare, tablouri electrice</div>
+    <div class="service">Verificări și mentenanță</div>
+  </div>
+</section>
 
-  <footer>
-    <p>📞 WhatsApp: <a href="https://wa.me/40744925314">+40 744 925 314</a></p>
-    <p>📧 Email: <a href="mailto:stropu1@yahoo.com">stropu1@yahoo.com</a></p>
-    <p>© 2026 ElectricLuj – Cluj-Napoca</p>
-  </footer>
+<section>
+  <h2>Lucrări realizate</h2>
+  <div class="gallery">
+    <img src="assets/work1.jpg" alt="Lucrare electrică Cluj">
+    <img src="assets/work2.jpg" alt="Instalație electrică Cluj">
+  </div>
+</section>
+
+<footer>
+  <p>📞 WhatsApp: <a href="https://wa.me/40744925314" target="_blank">+40 744 925 314</a></p>
+  <p>📧 Email: <a href="mailto:stropu1@yahoo.com">stropu1@yahoo.com</a></p>
+  <p>© 2026 ElectricLuj – Cluj-Napoca</p>
+</footer>
 
 </body>
 </html>
