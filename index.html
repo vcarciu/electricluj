@@ -93,20 +93,79 @@
     .service {
       background: #fafafa;
       padding: 20px;
-      border-radius: 8px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.08);
     }
 
+    /* ===== Gallery (premium) ===== */
     .gallery {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 20px;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
     }
 
-    .gallery img {
+    .g-item {
+      border-radius: 12px;
+      overflow: hidden;
+      background: #111;
+      box-shadow: 0 8px 22px rgba(0,0,0,0.10);
+      cursor: pointer;
+      position: relative;
+    }
+
+    /* fixed aspect ratio so all tiles look uniform */
+    .g-item::before {
+      content: "";
+      display: block;
+      padding-top: 62.5%; /* 16:10 (a bit taller than 16:9) */
+    }
+
+    .g-item img {
+      position: absolute;
+      inset: 0;
       width: 100%;
-      border-radius: 8px;
+      height: 100%;
       object-fit: cover;
+      transform: scale(1.02);
+      transition: transform 180ms ease, opacity 180ms ease;
+      opacity: 0.98;
+    }
+
+    .g-item:hover img {
+      transform: scale(1.06);
+      opacity: 1;
+    }
+
+    /* ===== Lightbox ===== */
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.85);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 99999;
+      padding: 18px;
+    }
+
+    .lightbox.open { display: flex; }
+
+    .lightbox img {
+      max-width: min(1100px, 96vw);
+      max-height: 92vh;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+    }
+
+    .lightbox .hint {
+      position: fixed;
+      bottom: 18px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: rgba(255,255,255,0.75);
+      font-size: 0.95rem;
+      text-align: center;
+      user-select: none;
     }
 
     footer {
@@ -122,10 +181,16 @@
       font-weight: bold;
     }
 
+    @media (max-width: 900px) {
+      .gallery { grid-template-columns: repeat(2, 1fr); }
+    }
+
     @media (max-width: 600px) {
       .hero h1 { font-size: 1.8rem; }
       .hero p { font-size: 1.05rem; }
       .whatsapp-btn { width: 100%; max-width: 320px; }
+      .gallery { grid-template-columns: 1fr; }
+      .g-item::before { padding-top: 66.7%; } /* slightly taller on mobile */
     }
   </style>
 </head>
@@ -162,21 +227,56 @@
 
 <section>
   <h2>Lucrări realizate</h2>
+
   <div class="gallery">
-    <img src="assets/work2.jpg" alt="Lucrare electrică ElectriCluj">
-    <img src="assets/work3.jpg" alt="Tablou electric ElectriCluj">
-    <img src="assets/work4.jpg" alt="Cablare electrică ElectriCluj">
-    <img src="assets/work5.jpg" alt="Instalație electrică în execuție">
-    <img src="assets/work6.jpg" alt="Panou electric profesional">
-    <img src="assets/work7.jpeg" alt="Lucrare electrică în desfășurare">
+    <div class="g-item" data-full="assets/work2.jpg"><img src="assets/work2.jpg" alt="Lucrare electrică ElectriCluj"></div>
+    <div class="g-item" data-full="assets/work3.jpg"><img src="assets/work3.jpg" alt="Tablou electric ElectriCluj"></div>
+    <div class="g-item" data-full="assets/work4.jpg"><img src="assets/work4.jpg" alt="Cablare electrică ElectriCluj"></div>
+    <div class="g-item" data-full="assets/work5.jpg"><img src="assets/work5.jpg" alt="Instalație electrică în execuție"></div>
+    <div class="g-item" data-full="assets/work6.jpg"><img src="assets/work6.jpg" alt="Panou electric profesional"></div>
+    <div class="g-item" data-full="assets/work7.jpeg"><img src="assets/work7.jpeg" alt="Lucrare electrică în desfășurare"></div>
   </div>
 </section>
 
 <footer>
-  <p>📞 WhatsApp: <a href="https://wa.me/40744925314" target="_blank">+40 744 925 314</a></p>
+  <p>📞 WhatsApp: <a href="https://wa.me/40744925314" target="_blank" rel="noopener">+40 744 925 314</a></p>
   <p>📧 Email: <a href="mailto:stropu1@yahoo.com">stropu1@yahoo.com</a></p>
   <p>© 2026 ElectriCluj – Cluj-Napoca</p>
 </footer>
+
+<!-- Lightbox -->
+<div id="lightbox" class="lightbox" aria-hidden="true">
+  <img id="lightboxImg" src="" alt="Imagine lucrare ElectriCluj">
+  <div class="hint">Click oriunde pentru închidere (sau ESC)</div>
+</div>
+
+<script>
+  (function () {
+    const lb = document.getElementById("lightbox");
+    const lbImg = document.getElementById("lightboxImg");
+
+    function open(src) {
+      lbImg.src = src;
+      lb.classList.add("open");
+      lb.setAttribute("aria-hidden", "false");
+    }
+
+    function close() {
+      lb.classList.remove("open");
+      lb.setAttribute("aria-hidden", "true");
+      lbImg.src = "";
+    }
+
+    document.querySelectorAll(".g-item").forEach(el => {
+      el.addEventListener("click", () => open(el.getAttribute("data-full")));
+    });
+
+    lb.addEventListener("click", close);
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") close();
+    });
+  })();
+</script>
 
 </body>
 </html>
