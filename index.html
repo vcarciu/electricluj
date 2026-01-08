@@ -2,9 +2,9 @@
 <html lang="ro">
 <head>
   <meta charset="UTF-8">
-  <title>ElectricLuj – Electrician Cluj-Napoca</title>
+  <title>ElectriCluj – Electrician Cluj-Napoca</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Electrician Cluj-Napoca. Instalații electrice, reparații, intervenții rapide. Contact WhatsApp.">
+  <meta name="description" content="ElectriCluj – Electrician Cluj-Napoca. Instalații electrice, reparații, intervenții rapide. Contact WhatsApp.">
 
   <style>
     body {
@@ -30,14 +30,13 @@
       position: absolute;
       inset: 0;
       background: rgba(0,0,0,0.6);
-      pointer-events: none; /* must not capture taps */
+      pointer-events: none;
       z-index: 1;
     }
 
-    /* hero container above overlay */
     .hero {
       position: relative;
-      z-index: 3; /* above everything */
+      z-index: 3;
       text-align: center;
       color: #fff;
       max-width: 900px;
@@ -55,7 +54,6 @@
       line-height: 1.4;
     }
 
-    /* button layer - make it absolutely safe for tapping */
     .cta-wrap {
       position: relative;
       z-index: 9999;
@@ -67,7 +65,6 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 10px;
       padding: 16px 30px;
       background: #25d366;
       color: #fff;
@@ -149,10 +146,9 @@
 
 <header>
   <div class="hero">
-    <h1>ElectricLuj</h1>
+    <h1>ElectriCluj</h1>
     <p>Electrician în Cluj-Napoca<br>Intervenții rapide & instalații electrice</p>
 
-    <!-- WhatsApp CTA -->
     <div class="cta-wrap">
       <a
         id="waTop"
@@ -168,7 +164,7 @@
 </header>
 
 <section>
-  <h2>Servicii</h2>
+  <h2>Servicii ElectriCluj</h2>
   <div class="services">
     <div class="service">Instalații electrice apartamente și case</div>
     <div class="service">Reparații și intervenții rapide</div>
@@ -180,27 +176,23 @@
 <section>
   <h2>Lucrări realizate</h2>
   <div class="gallery">
-    <img src="assets/work1.jpg" alt="Lucrare electrică Cluj">
-    <img src="assets/work2.jpg" alt="Instalație electrică Cluj">
+    <img src="assets/work1.jpg" alt="Lucrare electrică ElectriCluj">
+    <img src="assets/work2.jpg" alt="Instalație electrică ElectriCluj">
   </div>
 </section>
 
 <footer>
   <p>📞 WhatsApp: <a id="waBottom" href="https://wa.me/40744925314" target="_blank" rel="noopener">+40 744 925 314</a></p>
   <p>📧 Email: <a href="mailto:stropu1@yahoo.com">stropu1@yahoo.com</a></p>
-  <p>© 2026 ElectricLuj – Cluj-Napoca</p>
+  <p>© 2026 ElectriCluj – Cluj-Napoca</p>
 </footer>
 
 <script>
-  // Fallback: if any browser blocks the click or overlay issues remain,
-  // force a navigation to the WhatsApp URL.
   (function () {
     var url = "https://wa.me/40744925314?text=Salut!%20Am%20nevoie%20de%20un%20electrician%20%C3%AEn%20Cluj.";
     function hardOpen(e) {
-      // allow normal behavior too, but ensure something happens
       e.preventDefault();
       window.open(url, "_blank", "noopener");
-      // fallback if popup blocked
       setTimeout(function () {
         window.location.href = url;
       }, 150);
