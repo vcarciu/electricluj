@@ -3,40 +3,170 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>ElectricLuj</title>
+  <title>ElectricLuj - Servicii electrice Cluj-Napoca</title>
+  <meta name="description" content="ElectricLuj - servicii electrice in Cluj-Napoca: interventii rapide, prize, iluminat, tablouri electrice, instalatii." />
 </head>
 
-<body style="margin:0; font-family: Arial;">
-  <div style="
-    min-height: 85vh;
-    background: linear-gradient(120deg, rgba(0,0,0,0.65), rgba(0,0,0,0.25)),
-                url('assets/hero.png') center/cover no-repeat;
-    color: white;
-    padding: 48px;
-    display: flex;
-    align-items: center;
+<body style="margin:0; font-family: Arial, system-ui; background:#0b0f14; color:#fff;">
+
+  <!-- HERO -->
+  <section style="
+    min-height: 86vh;
+    background:
+      linear-gradient(120deg, rgba(0,0,0,0.70), rgba(0,0,0,0.25)),
+      url('assets/hero.png') center/cover no-repeat;
+    padding: 54px 20px;
+    display:flex;
+    align-items:center;
   ">
-    <div style="max-width: 720px;">
-      <h1 style="margin:0 0 12px; font-size: 46px;">ElectricLuj</h1>
-      <p style="margin:0 0 18px; font-size: 18px; opacity: 0.9;">
-        Servicii electrice in Cluj-Napoca. Interventii rapide si lucrari rezidentiale.
+    <div style="max-width: 1080px; margin:0 auto; width:100%;">
+      <div style="max-width: 720px;">
+        <div style="display:inline-flex; align-items:center; gap:10px; margin-bottom:14px; opacity:.92;">
+          <span style="width:10px; height:10px; border-radius:999px; background:#fff; display:inline-block;"></span>
+          <b style="letter-spacing:.3px;">ElectricLuj</b>
+        </div>
+
+        <h1 style="margin:0 0 14px; font-size:48px; line-height:1.05;">
+          Servicii electrice in Cluj-Napoca
+        </h1>
+
+        <p style="margin:0 0 22px; font-size:18px; opacity:.90; max-width: 620px;">
+          Interventii rapide si lucrari rezidentiale: prize, iluminat, tablouri electrice, instalatii.
+        </p>
+
+        <div style="display:flex; gap:12px; flex-wrap:wrap; align-items:center;">
+          <a href="https://wa.me/40744925314" target="_blank" rel="noopener"
+             style="
+               background:#fff; color:#0b0f14; text-decoration:none;
+               padding:12px 16px; border-radius:14px; font-weight:800;
+               display:inline-flex; align-items:center; gap:10px;
+             ">
+            WhatsApp: 0744 925 314
+          </a>
+
+          <a href="#servicii"
+             style="
+               background:rgba(255,255,255,0.08); color:#fff; text-decoration:none;
+               padding:12px 16px; border-radius:14px; font-weight:700;
+               border:1px solid rgba(255,255,255,0.14);
+             ">
+            Vezi servicii
+          </a>
+        </div>
+
+        <p style="margin:18px 0 0; font-size:16px; opacity:.85;">
+          Email:
+          <a href="mailto:carcium@gmail.com" style="color:#fff; text-decoration:underline;">
+            carcium@gmail.com
+          </a>
+        </p>
+
+        <div style="margin-top:18px; display:flex; gap:10px; flex-wrap:wrap;">
+          <span style="padding:8px 10px; border-radius:999px; border:1px solid rgba(255,255,255,0.14); background:rgba(255,255,255,0.06); opacity:.85; font-size:13px;">Cluj + imprejurimi</span>
+          <span style="padding:8px 10px; border-radius:999px; border:1px solid rgba(255,255,255,0.14); background:rgba(255,255,255,0.06); opacity:.85; font-size:13px;">Interventii rapide</span>
+          <span style="padding:8px 10px; border-radius:999px; border:1px solid rgba(255,255,255,0.14); background:rgba(255,255,255,0.06); opacity:.85; font-size:13px;">Lucrari curate</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICII -->
+  <section id="servicii" style="padding:56px 20px;">
+    <div style="max-width:1080px; margin:0 auto;">
+      <h2 style="margin:0 0 10px; font-size:30px;">Servicii</h2>
+      <p style="margin:0 0 18px; opacity:.80;">
+        Scrie pe WhatsApp sau email cu zona si ce ai nevoie.
       </p>
 
-      <!-- TODO: inlocuim dupa cu numarul si emailul tau -->
-      <p style="margin:0; font-size: 16px; opacity: 0.9;">
-        Contact: WhatsApp + Email
+      <div style="display:grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap:14px;">
+        <div style="padding:18px; border-radius:18px; background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.12);">
+          <b>Interventii & reparatii</b>
+          <div style="opacity:.82; margin-top:8px;">Prize, intrerupatoare, sigurante, diagnostic.</div>
+        </div>
+
+        <div style="padding:18px; border-radius:18px; background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.12);">
+          <b>Iluminat</b>
+          <div style="opacity:.82; margin-top:8px;">Montaj corpuri, LED, senzori, exterior.</div>
+        </div>
+
+        <div style="padding:18px; border-radius:18px; background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.12);">
+          <b>Tablouri electrice</b>
+          <div style="opacity:.82; margin-top:8px;">Modernizare, diferentiale, etichetare.</div>
+        </div>
+
+        <div style="padding:18px; border-radius:18px; background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.12);">
+          <b>Trasee & instalatii</b>
+          <div style="opacity:.82; margin-top:8px;">Prize noi, circuite dedicate, cablare.</div>
+        </div>
+
+        <div style="padding:18px; border-radius:18px; background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.12);">
+          <b>Verificari</b>
+          <div style="opacity:.82; margin-top:8px;">Testare circuite, identificare probleme.</div>
+        </div>
+
+        <div style="padding:18px; border-radius:18px; background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.12);">
+          <b>Mentenanta</b>
+          <div style="opacity:.82; margin-top:8px;">Spatii comerciale, interventii programate.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALERIE -->
+  <section style="padding:56px 20px; border-top:1px solid rgba(255,255,255,0.10); background:rgba(255,255,255,0.03);">
+    <div style="max-width:1080px; margin:0 auto;">
+      <h2 style="margin:0 0 10px; font-size:30px;">Lucrari recente</h2>
+
+      <div style="display:grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap:14px;">
+        <img src="assets/work1.jpg" alt="Lucrare electrica 1" style="width:100%; height:320px; object-fit:cover; border-radius:18px; border:1px solid rgba(255,255,255,0.12);" />
+        <img src="assets/work2.jpg" alt="Lucrare electrica 2" style="width:100%; height:320px; object-fit:cover; border-radius:18px; border:1px solid rgba(255,255,255,0.12);" />
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section style="padding:56px 20px;">
+    <div style="max-width:1080px; margin:0 auto;">
+      <h2 style="margin:0 0 10px; font-size:30px;">Contact</h2>
+      <p style="margin:0 0 18px; opacity:.80;">
+        Cel mai rapid: WhatsApp sau email.
+      </p>
+
+      <div style="display:flex; gap:12px; flex-wrap:wrap;">
+        <a href="https://wa.me/40744925314" target="_blank" rel="noopener"
+           style="background:#fff; color:#0b0f14; text-decoration:none; padding:12px 16px; border-radius:14px; font-weight:900;">
+          WhatsApp: 0744 925 314
+        </a>
+
+        <a href="mailto:carcium@gmail.com"
+           style="background:rgba(255,255,255,0.08); color:#fff; text-decoration:none; padding:12px 16px; border-radius:14px; font-weight:700; border:1px solid rgba(255,255,255,0.14);">
+          carcium@gmail.com
+        </a>
+      </div>
+
+      <p style="margin:16px 0 0; opacity:.70; font-size:13px;">
+        Zona: Cluj-Napoca + imprejurimi
       </p>
     </div>
-  </div>
+  </section>
 
-  <div style="padding: 28px 48px;">
-    <h2 style="margin:0 0 14px;">Lucrari recente</h2>
-
-    <div style="display:flex; gap:14px; flex-wrap: wrap;">
-      <img src="assets/work1.jpg" alt="Lucrare 1" style="width: 340px; max-width: 100%; border-radius: 14px;" />
-      <img src="assets/work2.jpg" alt="Lucrare 2" style="width: 340px; max-width: 100%; border-radius: 14px;" />
+  <footer style="padding:22px 20px; border-top:1px solid rgba(255,255,255,0.10); opacity:.75;">
+    <div style="max-width:1080px; margin:0 auto; display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap;">
+      <span>© <span id="y"></span> ElectricLuj</span>
+      <span>electricluj.ro</span>
     </div>
-  </div>
+  </footer>
+
+  <script>
+    document.getElementById("y").textContent = new Date().getFullYear();
+  </script>
+
+  <style>
+    @media (max-width: 900px){
+      section div[style*="grid-template-columns: repeat(3"] { grid-template-columns: 1fr !important; }
+      section div[style*="grid-template-columns: repeat(2"] { grid-template-columns: 1fr !important; }
+    }
+  </style>
+
 </body>
 </html>
-
