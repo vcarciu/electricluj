@@ -21,46 +21,69 @@
       display: flex;
       align-items: center;
       justify-content: center;
+      overflow: hidden;
     }
 
-    /* OVERLAY – NU MAI BLOCHEAZĂ CLICK */
+    /* overlay */
     header::after {
       content: "";
       position: absolute;
       inset: 0;
-      background: rgba(0, 0, 0, 0.6);
-      z-index: 0;
-      pointer-events: none;
+      background: rgba(0,0,0,0.6);
+      pointer-events: none; /* must not capture taps */
+      z-index: 1;
     }
 
+    /* hero container above overlay */
     .hero {
       position: relative;
-      z-index: 1;
+      z-index: 3; /* above everything */
       text-align: center;
       color: #fff;
-      max-width: 800px;
-      padding: 20px;
+      max-width: 900px;
+      padding: 24px;
     }
 
     .hero h1 {
       font-size: 2.6rem;
-      margin-bottom: 10px;
+      margin: 0 0 10px;
     }
 
     .hero p {
-      font-size: 1.2rem;
-      margin-bottom: 25px;
+      font-size: 1.15rem;
+      margin: 0 0 22px;
+      line-height: 1.4;
+    }
+
+    /* button layer - make it absolutely safe for tapping */
+    .cta-wrap {
+      position: relative;
+      z-index: 9999;
+      display: inline-block;
+      pointer-events: auto;
     }
 
     .whatsapp-btn {
-      display: inline-block;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
       padding: 16px 30px;
       background: #25d366;
       color: #fff;
       font-size: 1.1rem;
-      font-weight: bold;
+      font-weight: 700;
       text-decoration: none;
-      border-radius: 8px;
+      border-radius: 10px;
+      border: 0;
+      cursor: pointer;
+      pointer-events: auto !important;
+      -webkit-tap-highlight-color: transparent;
+      user-select: none;
+    }
+
+    .whatsapp-btn:active {
+      transform: scale(0.99);
     }
 
     section {
@@ -72,7 +95,7 @@
 
     h2 {
       text-align: center;
-      margin-bottom: 30px;
+      margin: 0 0 30px;
       font-size: 2rem;
     }
 
@@ -115,9 +138,9 @@
     }
 
     @media (max-width: 600px) {
-      .hero h1 {
-        font-size: 1.8rem;
-      }
+      .hero h1 { font-size: 1.8rem; }
+      .hero p { font-size: 1.05rem; }
+      .whatsapp-btn { width: 100%; max-width: 320px; }
     }
   </style>
 </head>
@@ -127,17 +150,20 @@
 <header>
   <div class="hero">
     <h1>ElectricLuj</h1>
-    <p>Electrician autorizat în Cluj-Napoca<br>Intervenții rapide & instalații electrice</p>
+    <p>Electrician în Cluj-Napoca<br>Intervenții rapide & instalații electrice</p>
 
-    <!-- BUTON WHATSAPP – CLICK FUNCȚIONAL -->
-    <a
-      class="whatsapp-btn"
-      href="https://wa.me/40744925314?text=Salut!%20Am%20nevoie%20de%20un%20electrician%20%C3%AEn%20Cluj."
-      target="_blank"
-      rel="noopener"
-    >
-      Contact pe WhatsApp
-    </a>
+    <!-- WhatsApp CTA -->
+    <div class="cta-wrap">
+      <a
+        id="waTop"
+        class="whatsapp-btn"
+        href="https://wa.me/40744925314?text=Salut!%20Am%20nevoie%20de%20un%20electrician%20%C3%AEn%20Cluj."
+        target="_blank"
+        rel="noopener"
+      >
+        Contact pe WhatsApp
+      </a>
+    </div>
   </div>
 </header>
 
@@ -160,10 +186,39 @@
 </section>
 
 <footer>
-  <p>📞 WhatsApp: <a href="https://wa.me/40744925314" target="_blank">+40 744 925 314</a></p>
+  <p>📞 WhatsApp: <a id="waBottom" href="https://wa.me/40744925314" target="_blank" rel="noopener">+40 744 925 314</a></p>
   <p>📧 Email: <a href="mailto:stropu1@yahoo.com">stropu1@yahoo.com</a></p>
   <p>© 2026 ElectricLuj – Cluj-Napoca</p>
 </footer>
+
+<script>
+  // Fallback: if any browser blocks the click or overlay issues remain,
+  // force a navigation to the WhatsApp URL.
+  (function () {
+    var url = "https://wa.me/40744925314?text=Salut!%20Am%20nevoie%20de%20un%20electrician%20%C3%AEn%20Cluj.";
+    function hardOpen(e) {
+      // allow normal behavior too, but ensure something happens
+      e.preventDefault();
+      window.open(url, "_blank", "noopener");
+      // fallback if popup blocked
+      setTimeout(function () {
+        window.location.href = url;
+      }, 150);
+    }
+
+    var topBtn = document.getElementById("waTop");
+    if (topBtn) {
+      topBtn.addEventListener("click", hardOpen, { passive: false });
+      topBtn.addEventListener("touchend", hardOpen, { passive: false });
+    }
+
+    var bottomBtn = document.getElementById("waBottom");
+    if (bottomBtn) {
+      bottomBtn.addEventListener("click", hardOpen, { passive: false });
+      bottomBtn.addEventListener("touchend", hardOpen, { passive: false });
+    }
+  })();
+</script>
 
 </body>
 </html>
